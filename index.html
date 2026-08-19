@@ -62,7 +62,7 @@ a{color:var(--primary);text-decoration:none}
 .hero-eyebrow{font-size:clamp(13px,1.8vw,15px);font-weight:600;line-height:1.7;color:var(--mint);max-width:600px;margin:0 auto 30px;opacity:.9}
 .hero-headline{font-size:clamp(32px,5.4vw,58px);font-weight:900;line-height:1.2;letter-spacing:-.02em;color:var(--white);margin-bottom:24px}
 .hero-headline .highlight{color:var(--primary)}
-.hero-sub{font-size:clamp(17px,2.2vw,21px);font-weight:700;line-height:1.7;color:rgba(255,255,255,.75);margin:0 auto 18px;max-width:660px}
+.hero-sub{font-size:clamp(20px,2.75vw,26px);font-weight:800;line-height:1.6;color:#fff;margin:0 auto 20px;max-width:680px;letter-spacing:-.015em}
 .hero-desc{font-size:15px;line-height:1.85;color:rgba(255,255,255,.42);max-width:580px;margin:0 auto 40px}
 .hero-cta-group{margin-bottom:44px}
 .hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
@@ -78,7 +78,7 @@ a{color:var(--primary);text-decoration:none}
 .value-section .container{position:relative;z-index:1}
 .quote-title{font-size:clamp(23px,3.4vw,36px);font-weight:900;line-height:1.4;letter-spacing:-.02em;color:var(--ink);max-width:640px;margin:0 auto 20px;position:relative}
 .quote-title .q-mark{color:var(--primary);opacity:.5;font-weight:900}
-.quote-title .prog{color:var(--primary-dark);padding-inline:3px;background-image:linear-gradient(180deg,transparent 66%,rgba(31,184,205,.24) 66%,rgba(31,184,205,.1) 100%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.quote-title .prog{color:var(--primary-dark);padding-inline:2px;background-image:linear-gradient(180deg,transparent 80%,rgba(31,184,205,.3) 80%,rgba(31,184,205,.14) 100%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
 .time-band{max-width:640px;margin:0 auto 56px;text-align:center;padding:26px 30px 24px;background:var(--white);border:1px solid rgba(31,184,205,.2);border-radius:20px;box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 20px 44px rgba(19,52,59,.06)}
 .tb-figure{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:12px}
@@ -93,7 +93,9 @@ a{color:var(--primary);text-decoration:none}
   .value-card:hover{transform:translateY(-4px);border-color:rgba(31,184,205,.35);box-shadow:0 16px 42px rgba(31,184,205,.13),0 4px 14px rgba(19,52,59,.06)}
   .value-card:hover::after{opacity:1}
 }
-.value-icon{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;background:linear-gradient(145deg,rgba(31,184,205,.16) 0%,rgba(31,184,205,.05) 100%);border:1px solid rgba(31,184,205,.24)}
+.value-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:linear-gradient(145deg,rgba(31,184,205,.16) 0%,rgba(31,184,205,.05) 100%);border:1px solid rgba(31,184,205,.24);color:var(--primary-dark);box-shadow:0 1px 0 rgba(255,255,255,.8) inset;transition:background .25s ease,border-color .25s ease,color .25s ease}
+.value-icon svg{width:26px;height:26px;display:block}
+@media (hover:hover) and (pointer:fine){.value-card:hover .value-icon{background:linear-gradient(145deg,rgba(31,184,205,.28) 0%,rgba(31,184,205,.1) 100%);border-color:rgba(31,184,205,.42);color:var(--primary)}}
 .value-num{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--primary);margin-bottom:10px;display:block}
 .value-card h3{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
 .value-card p{font-size:14.5px;line-height:1.8;color:var(--ink-60)}
@@ -170,13 +172,13 @@ a{color:var(--primary);text-decoration:none}
   <div class="hero-content">
     <p class="hero-eyebrow fade-up">לכל מי שהתייעף מלשוחח עם הצ'אט במשך שעות רק כדי לקבל תשובות גנריות וסופר-דופר לא שימושיות בעליל:</p>
     <h1 class="hero-headline fade-up d1">ממתחיל למקצוען<br><span class="highlight">בבינה מלאכותית.</span></h1>
-    <p class="hero-sub fade-up d2">איך באמת לחסוך 1-2 שעות עבודה מבוזבזות ביום — כבר ממחר בבוקר — בעזרת הבינה המלאכותית.</p>
-    <p class="hero-desc fade-up d3">גם אם אתה מתחיל עם ממש קצת ניסיון בשימוש ב-AI, וכל שיחה שהייתה לך עד היום עם הצ'אט נגמרה ב״טובב, אני כבר אעשה את זה בעצמי!🙂‍↕️״</p>
+    <p class="hero-sub fade-up d2">איך באמת לחסוך 1-2 שעות עבודה מבוזבזות ביום כבר ממחר בבוקר בעזרת הבינה המלאכותית.</p>
+    <p class="hero-desc fade-up d3">גם אם אתה מתחיל עם ממש קצת ניסיון בשימוש בAi וכל שיחה שהייתה לך עד היום עם הצ'אט נגמרה ב"טובב, אני כבר אעשה את זה בעצמי!🙂‍↕️"</p>
     <div class="hero-cta-group fade-up d4">
       <a href="#" class="btn-cta">כן נעם, אני רוצה לחסוך 1-2 שעות ביום!</a>
     </div>
     <div class="hero-tags fade-up d4">
-      <span class="hero-tag">פחות מ-3 שעות צפייה</span>
+      <span class="hero-tag">פחות מ3 שעות צפייה</span>
       <span class="hero-tag">ליישום כבר מחר בבוקר</span>
       <span class="hero-tag">בלי רקע טכני</span>
       <span class="hero-tag">גישה מיידית</span>
@@ -190,41 +192,41 @@ a{color:var(--primary);text-decoration:none}
 
     <div class="sec-header fade-up">
       <span class="eyebrow-mono">WHAT YOU GET</span>
-      <h2 class="quote-title"><span class="q-mark">״</span>אז רגע נעם, מה בדיוק מקבלים בתוך התוכנית <span class="prog">ממתחיל למקצוען בבינה מלאכותית</span>?<span class="q-mark">״</span></h2>
+      <h2 class="quote-title">"אז רגע נעם, מה בדיוק מקבלים בתוך התוכנית <span class="prog">'ממתחיל למקצוען בבינה מלאכותית'</span>?"</h2>
       <div class="rule"></div>
     </div>
 
     <div class="time-band fade-up d1">
       <div class="tb-figure"><span class="tb-num">3</span><span class="tb-unit">שעות</span></div>
-      <p class="time-band-text">תוך פחות מ-3 שעות בלבד (!) כל צופה יקבל את הכלים כדי להצליח ל…</p>
+      <p class="time-band-text">תוך פחות מ3 שעות בלבד (!) כל צופה יקבל את הכלים כדי להצליח ל…</p>
     </div>
 
     <div class="value-grid">
 
       <article class="value-card fade-up d1">
-        <div class="value-icon">🎯</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
         <span class="value-num">01</span>
         <h3>המשימה שאתה הכי שונא</h3>
-        <p>לקחת את המשימה או שתיים הגדולות והמעצבנות (אלו שאנחנו הכי שונאיםם) — ולתת לבינה מלאכותית לעשות את רובה, או לפחות את החלק הכי קשה בה.</p>
+        <p>לקחת את המשימה או שניים הגדולות והמעצבנות (אלו שאנחנו הכי שונאיםם) ולתת לבינה מלאכותית לעשות את רובה או לפחות את החלק הכי קשה בה.</p>
       </article>
 
       <article class="value-card fade-up d2">
-        <div class="value-icon">🛡️</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <span class="value-num">02</span>
         <h3>ביטחון במקום פחד</h3>
-        <p>להפסיק לפחד מההפחדות הבלתי נפסקות שהחדשות מספרות לנו על פיטורים ועסקים שנסגרים — ובמקום, לקבל ביטחון שאנחנו ״על הגל״ ומעודכנים בבייסיק שיפתח לנו דלתות בעולם החדש שעכשיו משנה את העולם.</p>
+        <p>להפסיק לפחד מההפחדות הבלתי נפסקות שהחדשות מספרות לנו על פיטורים ועסקים שנסגרים.. ובמקום, לקבל ביטחון שאנחנו "על הגל", ומעודכנים בבייסיק שיפתח לנו דלתות בעולם החדש שעכשיו משנה את העולם.</p>
       </article>
 
       <article class="value-card fade-up d3">
-        <div class="value-icon">⏳</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></div>
         <span class="value-num">03</span>
-        <h3>שעה-שעתיים חזרה ליום</h3>
-        <p>להתעורר עוד שבוע או שבועיים ולגלות שיש לנו עוד שעה או שעתיים פנויים ביום — להיות עם המשפחה, או להספיק דברים אישיים שרצינו.</p>
+        <h3>שעה או שעתיים חזרה ליום</h3>
+        <p>להתעורר עוד שבוע או שבועיים ולגלות שיש לנו עוד שעה או שעתיים פנויים ביום להיות עם המשפחה או להספיק דברים אישיים שרצינו.</p>
       </article>
 
     </div>
 
-    <p class="note-kicker fade-up d1">כמובןןן שחשוב לצפות בתכנים וליישם את מה שאני מלמד, כן? כי כמו שבטח הבנתם — ה-AI זה לא כפתור קסם אם לא יודעים להשתמש בו כמו שצריך 😊</p>
+    <p class="note-kicker fade-up d1">(כמובןןן שחשוב לצפות בתכנים וליישם את מה שאני מלמד, כן? כי כמו שבטח הבנתם הAi זה לא כפתור קסם אם לא יודעים להשתמש בו כמו שצריך😊)</p>
 
   </div>
 </section>
@@ -235,15 +237,15 @@ a{color:var(--primary);text-decoration:none}
 
     <div class="sec-header fade-up">
       <span class="eyebrow-mono">THE PRICE</span>
-      <h2 class="quote-title"><span class="q-mark">״</span>מושלם! נשמע לי בול.<br>כמה זה עולה נעם?<span class="q-mark">״</span></h2>
+      <h2 class="quote-title">"מושלם! נשמע לי בול.<br>כמה זה עולה נעם?"</h2>
     </div>
 
     <div class="price-panel fade-up" id="pricePanel">
-      <div class="price-old"><span class="po-num">297</span><span class="po-cur">₪</span></div>
-      <div class="price-new"><span class="pn-num">147</span><span class="pn-cur">₪</span></div>
+      <div class="price-old"><span class="po-num">297</span><span class="po-cur">ש''ח</span></div>
+      <div class="price-new"><span class="pn-num">147</span><span class="pn-cur">ש''ח</span></div>
       <div class="price-only">בלבד!</div>
-      <a href="#" class="btn-cta">כן נעם, אני רוצה גישה עכשיו! &laquo;</a>
-      <div class="scarcity"><span class="scarcity-dot"></span>גישה מיידית — מיד אחרי התשלום</div>
+      <a href="#" class="btn-cta">כן נעם, אני רוצה גישה עכשיו! &lt;&lt;</a>
+      <div class="scarcity"><span class="scarcity-dot"></span>גישה מיידית, מיד אחרי התשלום</div>
     </div>
 
   </div>
