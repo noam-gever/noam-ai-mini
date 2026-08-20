@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ממתחיל למקצוען בבינה מלאכותית | נעם AI</title>
+<meta name="description" content="איך באמת לחסוך 1-2 שעות עבודה מבוזבזות ביום כבר ממחר בבוקר בעזרת הבינה המלאכותית. פחות מ-3 שעות צפייה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--a11y-t:1;
+  --primary:#1fb8cd;
+  --primary-dark:#114f56;
+  --primary-light:#92dce2;
+  --primary-100:#def7f9;
+  --primary-50:#edf9fb;
+  --mint:#badedd;
+  --mint-100:#e6f6f8;
+  --signal:#bf505c;
+  --space:#13343b;
+  --navy:#114f56;
+  --navy-mid:#1a6872;
+  --ink:#13343b;
+  --ink-60:#2e565e;
+  --ink-30:#7a9fa3;
+  --border:#e4e3d4;
+  --paper:#fbfaf4;
+  --paper-alt:#f3f3ee;
+  --white:#ffffff;
+  --font-he:"Heebo",-apple-system,sans-serif;
+  --font-mono:"Space Mono",monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:calc((16px) * var(--a11y-t));scroll-behavior:smooth}
+body{font-family:var(--font-he);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;direction:rtl;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ============ טיפוגרפיה משותפת ============ */
+.eyebrow-mono{font-family:var(--font-mono);font-size:calc((10px) * var(--a11y-t));font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--primary-dark);display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.section-dark .eyebrow-mono{color:var(--primary-light)}
+.eyebrow-mono::before,.eyebrow-mono::after{content:"";width:24px;height:1px;background:currentColor;opacity:.45}
+.sec-title{font-size:calc((clamp(26px,4vw,44px)) * var(--a11y-t));font-weight:900;line-height:1.28;letter-spacing:-.02em;margin-bottom:18px;text-align:center}
+.sec-desc{font-size:calc((17px) * var(--a11y-t));line-height:1.85;color:var(--ink-60);max-width:620px;margin:0 auto;text-align:center}
+.section-dark .sec-desc{color:rgba(255,255,255,.5)}
+.sec-header{margin-bottom:52px;text-align:center}
+.rule{width:56px;height:3px;margin:0 auto 22px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--primary),var(--primary-light),transparent)}
+
+/* ============ כפתור ============ */
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-he);font-weight:800;font-size:calc((clamp(16px,2.4vw,19px)) * var(--a11y-t));line-height:1.35;padding:18px 38px;border-radius:14px;border:none;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;text-decoration:none;background:var(--primary);color:var(--white);box-shadow:0 4px 24px rgba(31,184,205,.3);text-align:center}
+.btn-cta:hover{background:#17a0b3;transform:translateY(-2px);box-shadow:0 10px 34px rgba(31,184,205,.42)}
+.btn-cta:active{transform:translateY(0)}
+
+/* ============ HERO ============ */
+.hero{background:var(--space);padding:110px 24px 90px;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(31,184,205,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(31,184,205,.07) 1px,transparent 1px);background-size:60px 60px}
+.hero-glow-1{position:absolute;top:-220px;right:-120px;width:640px;height:640px;background:radial-gradient(ellipse,rgba(31,184,205,.25) 0%,transparent 65%);pointer-events:none}
+.hero-glow-2{position:absolute;bottom:-160px;left:20px;width:420px;height:420px;background:radial-gradient(ellipse,rgba(186,222,221,.12) 0%,transparent 65%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto;width:100%;text-align:center}
+.hero-eyebrow{font-size:calc((clamp(13px,1.8vw,15px)) * var(--a11y-t));font-weight:600;line-height:1.7;color:var(--mint);max-width:600px;margin:0 auto 30px;opacity:.9}
+.hero-headline{font-size:calc((clamp(32px,5.4vw,58px)) * var(--a11y-t));font-weight:900;line-height:1.2;letter-spacing:-.02em;color:var(--white);margin-bottom:24px}
+.hero-headline .highlight{color:var(--primary)}
+.hero-sub{font-size:calc((clamp(20px,2.75vw,26px)) * var(--a11y-t));font-weight:800;line-height:1.6;color:#fff;margin:0 auto 20px;max-width:680px;letter-spacing:-.015em}
+.hero-desc{font-size:calc((15px) * var(--a11y-t));line-height:1.85;color:rgba(255,255,255,.42);max-width:580px;margin:0 auto 40px}
+.hero-cta-group{margin-bottom:44px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.hero-tag{font-size:calc((12px) * var(--a11y-t));font-weight:600;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.1);padding:7px 16px;border-radius:100px}
+
+/* ============ סקשן כללי ============ */
+.section{padding:100px 24px}
+.section-dark{background:var(--space);color:var(--white)}
+
+/* ============ מה מקבלים ============ */
+.value-section{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--paper) 0%,var(--mint-100) 42%,var(--paper) 100%)}
+.value-section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 78% 50% at 50% -6%,rgba(31,184,205,.1),transparent 60%),linear-gradient(rgba(31,184,205,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,184,205,.045) 1px,transparent 1px);background-size:auto,52px 52px,52px 52px}
+.value-section .container{position:relative;z-index:1}
+.quote-title{font-size:calc((clamp(23px,3.4vw,36px)) * var(--a11y-t));font-weight:900;line-height:1.4;letter-spacing:-.02em;color:var(--ink);max-width:640px;margin:0 auto 20px;position:relative}
+.quote-title .q-mark{color:var(--primary);opacity:.5;font-weight:900}
+.quote-title .prog{color:var(--primary-dark);padding-inline:2px;background-image:linear-gradient(180deg,transparent 80%,rgba(31,184,205,.3) 80%,rgba(31,184,205,.14) 100%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.time-band{max-width:640px;margin:0 auto 56px;text-align:center;padding:26px 30px 24px;background:var(--white);border:1px solid rgba(31,184,205,.2);border-radius:20px;box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 20px 44px rgba(19,52,59,.06)}
+.tb-figure{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:12px}
+.tb-num{font-family:var(--font-mono);font-size:calc((clamp(46px,8vw,68px)) * var(--a11y-t));font-weight:700;line-height:.9;color:var(--primary);letter-spacing:-.04em}
+.tb-unit{font-size:calc((clamp(20px,3.2vw,26px)) * var(--a11y-t));font-weight:900;color:var(--navy-mid);letter-spacing:-.02em}
+.time-band-text{font-size:calc((16px) * var(--a11y-t));font-weight:700;line-height:1.65;color:var(--navy-mid);max-width:520px;margin:0 auto}
+
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.value-card{position:relative;overflow:hidden;background:var(--white);border:1px solid rgba(31,184,205,.14);border-radius:20px;padding:32px 26px 30px;box-shadow:0 2px 18px rgba(19,52,59,.05);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;cursor:default}
+.value-card::after{content:"";position:absolute;inset-inline-end:0;top:0;width:3px;height:100%;background:linear-gradient(180deg,var(--primary) 0%,var(--primary-light) 45%,transparent 100%);opacity:0;transition:opacity .25s ease}
+@media (hover:hover) and (pointer:fine){
+  .value-card:hover{transform:translateY(-4px);border-color:rgba(31,184,205,.35);box-shadow:0 16px 42px rgba(31,184,205,.13),0 4px 14px rgba(19,52,59,.06)}
+  .value-card:hover::after{opacity:1}
+}
+.value-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:linear-gradient(145deg,rgba(31,184,205,.16) 0%,rgba(31,184,205,.05) 100%);border:1px solid rgba(31,184,205,.24);color:var(--primary-dark);box-shadow:0 1px 0 rgba(255,255,255,.8) inset;transition:background .25s ease,border-color .25s ease,color .25s ease}
+.value-icon svg{width:26px;height:26px;display:block}
+@media (hover:hover) and (pointer:fine){.value-card:hover .value-icon{background:linear-gradient(145deg,rgba(31,184,205,.28) 0%,rgba(31,184,205,.1) 100%);border-color:rgba(31,184,205,.42);color:var(--primary)}}
+.value-num{font-family:var(--font-mono);font-size:calc((10px) * var(--a11y-t));font-weight:700;letter-spacing:.16em;color:var(--primary);margin-bottom:10px;display:block}
+.value-card h3{font-size:calc((18px) * var(--a11y-t));font-weight:800;line-height:1.4;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
+.value-card p{font-size:calc((14.5px) * var(--a11y-t));line-height:1.8;color:var(--ink-60)}
+
+.note-kicker{max-width:660px;margin:44px auto 0;text-align:center;font-size:calc((14.5px) * var(--a11y-t));font-weight:600;line-height:1.75;color:var(--primary-dark);padding:18px 24px;background:var(--primary-50);border:1px solid rgba(31,184,205,.22);border-radius:16px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset}
+
+/* ============ מחיר ============ */
+.price-section{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--space) 0%,var(--navy) 100%);color:var(--white);padding:100px 24px}
+.price-section::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(31,184,205,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,184,205,.06) 1px,transparent 1px);background-size:44px 44px}
+.price-section::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 85% 55% at 50% 0%,rgba(31,184,205,.16),transparent 58%)}
+.price-section .container{position:relative;z-index:1}
+.price-section .quote-title{color:var(--white)}
+
+.price-panel{position:relative;max-width:540px;margin:0 auto;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.035) 48%,rgba(31,184,205,.06) 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(31,184,205,.22);border-radius:26px;padding:48px 40px 42px;box-shadow:0 4px 40px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07)}
+.price-panel::before{content:"";position:absolute;inset-inline:18%;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--primary-light),transparent);opacity:.65}
+
+.price-old{position:relative;display:inline-flex;align-items:baseline;gap:7px;font-weight:700;color:rgba(255,255,255,.32);margin-bottom:2px}
+.price-old .po-num{font-family:var(--font-mono);font-size:calc((clamp(26px,4vw,34px)) * var(--a11y-t));letter-spacing:-.02em}
+.price-old .po-cur{font-size:calc((clamp(18px,2.6vw,22px)) * var(--a11y-t))}
+.price-old::after{content:"";position:absolute;top:52%;right:-10px;left:-10px;height:2px;background:var(--signal);border-radius:2px;transform:scaleX(0);transform-origin:right center;transition:transform .5s cubic-bezier(.65,0,.35,1) .45s}
+.price-panel.visible .price-old::after{transform:scaleX(1)}
+
+.price-new{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:10px 0 2px;opacity:0;transform:scale(.86);transition:opacity .5s ease 1s,transform .55s cubic-bezier(.34,1.4,.64,1) 1s}
+.price-panel.visible .price-new{opacity:1;transform:scale(1)}
+.price-new .pn-num{font-family:var(--font-mono);font-size:calc((clamp(58px,11vw,92px)) * var(--a11y-t));font-weight:700;line-height:.95;color:var(--primary);letter-spacing:-.05em}
+.price-new .pn-cur{font-size:calc((clamp(28px,5vw,42px)) * var(--a11y-t));font-weight:800;color:var(--primary-light)}
+.price-only{font-size:calc((18px) * var(--a11y-t));font-weight:800;color:var(--primary-light);margin-bottom:28px;opacity:0;transition:opacity .5s ease 1.3s}
+.price-panel.visible .price-only{opacity:1}
+
+.scarcity{display:inline-flex;align-items:center;gap:9px;font-size:calc((13px) * var(--a11y-t));font-weight:700;color:rgba(255,255,255,.55);margin-top:22px}
+.scarcity-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:pulse-dot 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.75)}}
+
+/* ============ פוטר ============ */
+.footer{background:var(--space);padding:56px 24px 40px;text-align:center;border-top:1px solid rgba(255,255,255,.07)}
+.footer-logo{width:132px;height:auto;margin:0 auto 22px;opacity:.95}
+.footer-details{font-size:calc((13.5px) * var(--a11y-t));line-height:2;color:rgba(255,255,255,.42);margin-bottom:20px}
+.footer-details a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.footer-details a:hover{color:var(--primary-light)}
+.footer-details .sep{color:rgba(255,255,255,.18);margin:0 8px}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;padding-top:20px;margin-bottom:18px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-links a{font-size:calc((13px) * var(--a11y-t));font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--primary-light);text-decoration:underline;text-underline-offset:3px}
+.footer-copy{font-family:var(--font-mono);font-size:calc((10px) * var(--a11y-t));color:rgba(255,255,255,.22);letter-spacing:.08em;text-transform:uppercase}
+
+/* ============ אנימציית כניסה ============ */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+  .fade-up{opacity:1;transform:none}
+}
+
+/* ============ מובייל ============ */
+@media (max-width:860px){
+  .value-grid{grid-template-columns:1fr;gap:14px}
+  .section,.price-section{padding:76px 20px}
+  .hero{padding:90px 20px 70px;min-height:auto}
+  .container{padding:0 20px}
+  .value-card{padding:28px 22px 26px}
+  .btn-cta{width:100%;padding:18px 24px}
+}
+
+/* ============ תוסף נגישות ============ */
+.a11y-btn{position:fixed;inset-inline-end:20px;bottom:20px;z-index:9998;width:54px;height:54px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:var(--primary-dark);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.32);transition:transform .2s,background .2s}
+.a11y-btn:hover{background:var(--primary);transform:scale(1.06)}
+.a11y-btn:focus-visible{outline:3px solid #ffd400;outline-offset:3px}
+.a11y-btn svg{width:30px;height:30px}
+
+.a11y-panel{position:fixed;inset-inline-end:20px;bottom:86px;z-index:9999;width:302px;max-width:calc(100vw - 40px);max-height:calc(100vh - 110px);overflow-y:auto;background:#fff;border:1px solid rgba(19,52,59,.16);border-radius:18px;box-shadow:0 18px 60px rgba(19,52,59,.26);padding:18px;display:none}
+.a11y-panel[data-open="true"]{display:block}
+.a11y-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid #e4e3d4}
+.a11y-head h2{font-size:calc(16px * var(--a11y-t));font-weight:900;color:#13343b;margin:0}
+.a11y-close{width:32px;height:32px;border-radius:9px;border:1px solid #e4e3d4;background:#fbfaf4;color:#2e565e;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.a11y-close:hover{background:#f0efe6}
+.a11y-close:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+.a11y-close svg{width:17px;height:17px}
+
+.a11y-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.a11y-row-label{font-size:calc(13.5px * var(--a11y-t));font-weight:700;color:#2e565e;flex:1}
+.a11y-step{width:36px;height:36px;border-radius:10px;border:1px solid #cfe9ee;background:#edf9fb;color:#114f56;font-size:calc(17px * var(--a11y-t));font-weight:900;cursor:pointer;flex-shrink:0;line-height:1}
+.a11y-step:hover:not(:disabled){background:#def7f9}
+.a11y-step:disabled{opacity:.35;cursor:not-allowed}
+.a11y-step:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+.a11y-lvl{font-family:var(--font-mono);font-size:calc(12px * var(--a11y-t));font-weight:700;color:#1a6872;min-width:44px;text-align:center}
+
+.a11y-opt{width:100%;display:flex;align-items:center;gap:11px;padding:11px 12px;margin-bottom:7px;border-radius:11px;border:1px solid #e4e3d4;background:#fbfaf4;color:#13343b;font-family:var(--font-he);font-size:calc(14px * var(--a11y-t));font-weight:700;text-align:start;cursor:pointer;transition:background .18s,border-color .18s}
+.a11y-opt:hover{background:#edf9fb;border-color:#a8dde5}
+.a11y-opt:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+.a11y-opt[aria-pressed="true"]{background:#114f56;border-color:#114f56;color:#fff}
+.a11y-opt svg{width:19px;height:19px;flex-shrink:0}
+.a11y-opt .tick{margin-inline-start:auto;font-weight:900;opacity:0}
+.a11y-opt[aria-pressed="true"] .tick{opacity:1}
+
+.a11y-reset{width:100%;margin-top:6px;padding:11px;border-radius:11px;border:1px solid #f0c9ce;background:#fdf3f4;color:#a3414c;font-family:var(--font-he);font-size:calc(13.5px * var(--a11y-t));font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.a11y-reset:hover{background:#f9e6e8}
+.a11y-reset:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+.a11y-reset svg{width:15px;height:15px}
+.a11y-foot{margin-top:13px;padding-top:12px;border-top:1px solid #e4e3d4;text-align:center}
+.a11y-foot a{font-size:calc(12.5px * var(--a11y-t));font-weight:700;color:#114f56;text-decoration:underline;text-underline-offset:3px}
+
+/* --- מצבים --- */
+body.a11y-links a:not(.btn-cta):not(.a11y-btn){text-decoration:underline!important;text-underline-offset:3px;font-weight:800!important;outline:1px dashed currentColor;outline-offset:2px}
+body.a11y-readable,body.a11y-readable *:not(.a11y-panel):not(.a11y-panel *){font-family:Arial,"Heebo",sans-serif!important;letter-spacing:.02em!important}
+body.a11y-nomotion *,body.a11y-nomotion *::before,body.a11y-nomotion *::after{animation:none!important;transition:none!important}
+body.a11y-nomotion .fade-up{opacity:1!important;transform:none!important}
+body.a11y-cursor,body.a11y-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='%23fff' stroke='%23000' stroke-width='1.5'%3E%3Cpath d='M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z'/%3E%3C/svg%3E") 4 4,auto!important}
+
+/* ניגודיות גבוהה: שחור-צהוב.
+   מוגבל ל-#main ול-.footer בלבד — כך תפריט הנגישות עצמו לא נדרס,
+   וסדר העדיפויות נשמר בלי שרשראות :not() שמנצחות את צבעי ההדגשה. */
+body.a11y-contrast,body.a11y-contrast #main,body.a11y-contrast .footer,
+body.a11y-contrast #main section,body.a11y-contrast #main .value-card,
+body.a11y-contrast #main .time-band,body.a11y-contrast #main .price-panel,
+body.a11y-contrast #main .note-kicker{background:#000!important;background-image:none!important}
+body.a11y-contrast #main .hero-grid-bg,body.a11y-contrast #main .hero-glow-1,
+body.a11y-contrast #main .hero-glow-2,body.a11y-contrast #main .rule,
+body.a11y-contrast #main .value-card::after,body.a11y-contrast #main .price-panel::before,
+body.a11y-contrast .value-section::before,body.a11y-contrast .price-section::before,
+body.a11y-contrast .price-section::after{display:none!important}
+
+body.a11y-contrast #main *,body.a11y-contrast .footer *{color:#fff!important;border-color:#fff!important;box-shadow:none!important;text-shadow:none!important;background-image:none!important}
+
+body.a11y-contrast #main .highlight,body.a11y-contrast #main .tb-num,
+body.a11y-contrast #main .pn-num,body.a11y-contrast #main .pn-cur,
+body.a11y-contrast #main .value-num,body.a11y-contrast #main .eyebrow-mono,
+body.a11y-contrast #main .prog,body.a11y-contrast #main .scarcity-dot{color:#ffd400!important}
+body.a11y-contrast #main .prog{background:none!important}
+body.a11y-contrast #main .scarcity-dot{background:#ffd400!important}
+body.a11y-contrast #main .price-old{color:#b9b9b9!important}
+
+body.a11y-contrast #main .value-card,body.a11y-contrast #main .time-band,
+body.a11y-contrast #main .price-panel,body.a11y-contrast #main .note-kicker,
+body.a11y-contrast #main .value-icon,body.a11y-contrast #main .hero-tag{border:2px solid #fff!important}
+
+body.a11y-contrast #main .btn-cta{background:#ffd400!important;border:2px solid #fff!important}
+body.a11y-contrast #main .btn-cta,body.a11y-contrast #main .btn-cta *{color:#000!important}
+body.a11y-contrast .footer-logo{filter:grayscale(1) brightness(2.4)!important}
+
+/* מיקוד מקלדת גלוי בכל הדף */
+a:focus-visible,button:focus-visible{outline:3px solid #ffd400;outline-offset:3px;border-radius:4px}
+.a11y-skip{position:absolute;inset-inline-start:-9999px;top:0;z-index:10000;background:#114f56;color:#fff;padding:12px 22px;border-radius:0 0 12px 0;font-weight:800;font-size:15px}
+.a11y-skip:focus{inset-inline-start:0}
+
+@media (max-width:520px){.a11y-panel{inset-inline-start:12px;inset-inline-end:12px;width:auto}.a11y-btn{inset-inline-end:14px;bottom:14px;width:50px;height:50px}}
+@media print{.a11y-btn,.a11y-panel{display:none!important}}
+
+</style>
+<style>.fade-up{opacity:1!important;transform:none!important}.hero{min-height:700px!important}</style></head>
+<body>
+<a href="#main" class="a11y-skip">דילוג לתוכן הראשי</a>
+
+<!-- ==================== HERO ==================== -->
+<main id="main">
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fade-up">לכל מי שהתייעף מלשוחח עם הצ'אט במשך שעות רק כדי לקבל תשובות גנריות וסופר-דופר לא שימושיות בעליל:</p>
+    <h1 class="hero-headline fade-up d1">ממתחיל למקצוען<br><span class="highlight">בבינה מלאכותית.</span></h1>
+    <p class="hero-sub fade-up d2">איך באמת לחסוך 1-2 שעות עבודה מבוזבזות ביום כבר ממחר בבוקר בעזרת הבינה המלאכותית.</p>
+    <p class="hero-desc fade-up d3">גם אם אתה מתחיל עם ממש קצת ניסיון בשימוש בAi וכל שיחה שהייתה לך עד היום עם הצ'אט נגמרה ב"טובב, אני כבר אעשה את זה בעצמי!🙂‍↕️"</p>
+    <div class="hero-cta-group fade-up d4">
+      <a href="https://pay.grow.link/OTI0NTQ~9873563b5e55946ec1aabcc324217b8b-Mzg1ODgzNg" class="btn-cta" data-cta="hero">כן נעם, אני רוצה לחסוך 1-2 שעות ביום!</a>
+    </div>
+    <div class="hero-tags fade-up d4">
+      <span class="hero-tag">פחות מ3 שעות צפייה</span>
+      <span class="hero-tag">ליישום כבר מחר בבוקר</span>
+      <span class="hero-tag">גישה מיידית</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== מה מקבלים ==================== -->
+<section class="section value-section">
+  <div class="container">
+
+    <div class="sec-header fade-up">
+      <span class="eyebrow-mono">WHAT YOU GET</span>
+      <h2 class="quote-title">"אז רגע נעם, מה בדיוק מקבלים בתוך התוכנית <span class="prog">'ממתחיל למקצוען בבינה מלאכותית'</span>?"</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="time-band fade-up d1">
+      <div class="tb-figure"><span class="tb-num">3</span><span class="tb-unit">שעות</span></div>
+      <p class="time-band-text">תוך פחות מ3 שעות בלבד (!) כל צופה יקבל את הכלים כדי להצליח ל…</p>
+    </div>
+
+    <div class="value-grid">
+
+      <article class="value-card fade-up d1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+        <span class="value-num">01</span>
+        <h3>המשימה שאתה הכי שונא</h3>
+        <p>לקחת את המשימה או שניים הגדולות והמעצבנות (אלו שאנחנו הכי שונאיםם) ולתת לבינה מלאכותית לעשות את רובה או לפחות את החלק הכי קשה בה.</p>
+      </article>
+
+      <article class="value-card fade-up d2">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <span class="value-num">02</span>
+        <h3>ביטחון במקום פחד</h3>
+        <p>להפסיק לפחד מההפחדות הבלתי נפסקות שהחדשות מספרות לנו על פיטורים ועסקים שנסגרים.. ובמקום, לקבל ביטחון שאנחנו "על הגל", ומעודכנים בבייסיק שיפתח לנו דלתות בעולם החדש שעכשיו משנה את העולם.</p>
+      </article>
+
+      <article class="value-card fade-up d3">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></div>
+        <span class="value-num">03</span>
+        <h3>שעה או שעתיים חזרה ליום</h3>
+        <p>להתעורר עוד שבוע או שבועיים ולגלות שיש לנו עוד שעה או שעתיים פנויים ביום להיות עם המשפחה או להספיק דברים אישיים שרצינו.</p>
+      </article>
+
+    </div>
+
+    <p class="note-kicker fade-up d1">(כמובןןן שחשוב לצפות בתכנים וליישם את מה שאני מלמד, כן? כי כמו שבטח הבנתם הAi זה לא כפתור קסם אם לא יודעים להשתמש בו כמו שצריך😊)</p>
+
+  </div>
+</section>
+
+<!-- ==================== מחיר ==================== -->
+<section class="price-section section-dark">
+  <div class="container">
+
+    <div class="sec-header fade-up">
+      <span class="eyebrow-mono">THE PRICE</span>
+      <h2 class="quote-title">"מושלם! נשמע לי בול.<br>כמה זה עולה נעם?"</h2>
+    </div>
+
+    <div class="price-panel fade-up" id="pricePanel">
+      <div class="price-old"><span class="po-num">297</span><span class="po-cur">ש''ח</span></div>
+      <div class="price-new"><span class="pn-num">147</span><span class="pn-cur">ש''ח</span></div>
+      <div class="price-only">בלבד!</div>
+      <a href="https://pay.grow.link/OTI0NTQ~9873563b5e55946ec1aabcc324217b8b-Mzg1ODgzNg" class="btn-cta" data-cta="price">כן נעם, אני רוצה גישה עכשיו! &lt;&lt;</a>
+      <div class="scarcity"><span class="scarcity-dot"></span>גישה מיידית, מיד אחרי התשלום</div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==================== תוסף נגישות ==================== -->
+<button type="button" class="a11y-btn" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg></button>
+
+<div class="a11y-panel" id="a11yPanel" data-open="false" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-head">
+    <h2 id="a11yTitle">תפריט נגישות</h2>
+    <button type="button" class="a11y-close" id="a11yClose" aria-label="סגירת תפריט הנגישות"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+
+  <div class="a11y-row">
+    <span class="a11y-row-label">גודל טקסט</span>
+    <button type="button" class="a11y-step" id="a11yMinus" aria-label="הקטנת הטקסט">−</button>
+    <span class="a11y-lvl" id="a11yLvl" role="status" aria-live="polite">100%</span>
+    <button type="button" class="a11y-step" id="a11yPlus" aria-label="הגדלת הטקסט">+</button>
+  </div>
+
+  <button type="button" class="a11y-opt" data-a11y="contrast" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></svg><span>ניגודיות גבוהה</span><span class="tick" aria-hidden="true">✓</span></button>
+  <button type="button" class="a11y-opt" data-a11y="links" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>הדגשת קישורים</span><span class="tick" aria-hidden="true">✓</span></button>
+  <button type="button" class="a11y-opt" data-a11y="readable" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16"/><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"/><path d="M9 20h6"/></svg><span>גופן קריא</span><span class="tick" aria-hidden="true">✓</span></button>
+  <button type="button" class="a11y-opt" data-a11y="nomotion" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></svg><span>עצירת אנימציות</span><span class="tick" aria-hidden="true">✓</span></button>
+  <button type="button" class="a11y-opt" data-a11y="cursor" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg><span>סמן גדול</span><span class="tick" aria-hidden="true">✓</span></button>
+
+  <button type="button" class="a11y-reset" id="a11yReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span>איפוס כל ההגדרות</span></button>
+
+  <div class="a11y-foot"><a href="נגישות.html">להצהרת הנגישות המלאה</a></div>
+</div>
+
+<!-- ==================== פוטר ==================== -->
+<footer class="footer">
+  <img src="assets/logo-dark-bg.png" alt="נעם AI" class="footer-logo" width="640" height="161">
+
+  <div class="footer-details">
+    נעם סיון <span class="sep">|</span> עוסק פטור 326385150<br>
+    יהודה בורלא 20, ירושלים<br>
+    <a href="mailto:noam@noam-ai.com">noam@noam-ai.com</a>
+    <span class="sep">|</span>
+    <a href="tel:+972533907097" dir="ltr">053-390-7097</a>
+  </div>
+
+  <nav class="footer-links" aria-label="קישורים משפטיים">
+    <a href="תקנון.html">תקנון ותנאי שימוש</a>
+    <a href="פרטיות.html">מדיניות פרטיות</a>
+    <a href="נגישות.html">הצהרת נגישות</a>
+  </nav>
+
+  <div class="footer-copy" dir="ltr">NOAM AI &copy; 2026 &mdash; All Rights Reserved</div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+
+  document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id = this.getAttribute('href');
+      if(id === '#') return;
+      e.preventDefault();
+      var t = document.querySelector(id);
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+
+/* ---------- תוסף נגישות ---------- */
+(function(){
+  var KEY='noamai:a11y', STEPS=[1,1.15,1.3,1.5], TOGGLES=['contrast','links','readable','nomotion','cursor'];
+  var btn=document.getElementById('a11yBtn'), panel=document.getElementById('a11yPanel'),
+      closeB=document.getElementById('a11yClose'), plus=document.getElementById('a11yPlus'),
+      minus=document.getElementById('a11yMinus'), lvl=document.getElementById('a11yLvl'),
+      reset=document.getElementById('a11yReset');
+  var state={size:0};
+  TOGGLES.forEach(function(t){state[t]=false;});
+
+  function load(){
+    try{ var raw=localStorage.getItem(KEY); if(!raw) return;
+      var o=JSON.parse(raw);
+      if(typeof o.size==='number' && o.size>=0 && o.size<STEPS.length) state.size=o.size;
+      TOGGLES.forEach(function(t){ if(typeof o[t]==='boolean') state[t]=o[t]; });
+    }catch(e){}
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+  function apply(){
+    document.documentElement.style.setProperty('--a11y-t', STEPS[state.size]);
+    lvl.textContent = Math.round(STEPS[state.size]*100)+'%';
+    minus.disabled = state.size===0;
+    plus.disabled  = state.size===STEPS.length-1;
+    TOGGLES.forEach(function(t){
+      document.body.classList.toggle('a11y-'+t, state[t]);
+      var b=panel.querySelector('[data-a11y="'+t+'"]');
+      if(b) b.setAttribute('aria-pressed', String(state[t]));
+    });
+    /* עצירת אנימציות = לחשוף מיד כל מה שעדיין לא נכנס */
+    if(state.nomotion) document.querySelectorAll('.fade-up').forEach(function(el){el.classList.add('visible');});
+  }
+
+  function open(v){
+    panel.setAttribute('data-open', v?'true':'false');
+    btn.setAttribute('aria-expanded', v?'true':'false');
+    if(v) closeB.focus(); else btn.focus();
+  }
+
+  btn.addEventListener('click', function(){ open(panel.getAttribute('data-open')!=='true'); });
+  closeB.addEventListener('click', function(){ open(false); });
+  plus.addEventListener('click', function(){ if(state.size<STEPS.length-1){state.size++; apply(); save();} });
+  minus.addEventListener('click', function(){ if(state.size>0){state.size--; apply(); save();} });
+  panel.querySelectorAll('[data-a11y]').forEach(function(b){
+    b.addEventListener('click', function(){ var k=b.getAttribute('data-a11y'); state[k]=!state[k]; apply(); save(); });
+  });
+  reset.addEventListener('click', function(){
+    state.size=0; TOGGLES.forEach(function(t){state[t]=false;});
+    apply(); try{localStorage.removeItem(KEY);}catch(e){}
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && panel.getAttribute('data-open')==='true') open(false);
+  });
+  document.addEventListener('click', function(e){
+    if(panel.getAttribute('data-open')==='true' && !panel.contains(e.target) && !btn.contains(e.target)) open(false);
+  });
+
+  load(); apply();
+})();
+</script>
+
+<script>window.addEventListener("load",()=>{document.querySelector('[data-a11y="links"]').click();window.scrollTo(0,document.body.scrollHeight);})</script></body>
+</html>
