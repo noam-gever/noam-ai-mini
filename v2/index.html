@@ -196,15 +196,21 @@ svg{flex-shrink:0}
 .b-card:hover .b-icon::after,.card:hover .card-icon::after{opacity:1}
 
 /* ═══ סילבוס צבעוני ═══ */
-.mod{display:grid;grid-template-columns:96px 1fr;align-items:stretch}
-.mod-side{background:linear-gradient(180deg,var(--m1),var(--m2));display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:10px;padding:22px 0;position:relative}
-.mod-side .n{font-family:var(--font-mono);font-size:34px;font-weight:700;color:#fff;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.18)}
-.mod-ico{color:rgba(255,255,255,.92)}
+.mod{display:grid;grid-template-columns:84px 1fr;align-items:stretch}
+.mod-side{background:color-mix(in srgb,var(--m1) 8%,#fff);border-inline-end:1px solid color-mix(in srgb,var(--m1) 16%,transparent);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:22px 0;position:relative;transition:background .25s}
+.mod.open .mod-side{background:linear-gradient(180deg,var(--m1),var(--m2))}
+.mod-side .n{font-family:var(--font-mono);font-size:32px;font-weight:700;line-height:1;color:var(--m2);transition:color .25s}
+.mod.open .mod-side .n{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.mod-ico{color:color-mix(in srgb,var(--m2) 70%,transparent);transition:color .25s}
+.mod.open .mod-ico{color:rgba(255,255,255,.95)}
 .mod:hover .mod-ico svg{transform:translateY(-3px) scale(1.14)}
 .mod-num{display:none}
 .mod-main{min-width:0}
-.mod-head{padding:24px 26px}
+.mod-head{padding:22px 26px;transition:background .2s}
+.mod-head:hover{background:color-mix(in srgb,var(--m1) 5%,transparent)}
+.mod-head h4{transition:color .2s}
+.mod-head:hover h4{color:var(--m2)}
 .mod-inner{padding:0 26px 24px}
 .mod-1{--m1:#1fb8cd;--m2:#16909f}
 .mod-2{--m1:#2aa8c8;--m2:#177f97}
@@ -234,9 +240,12 @@ svg{flex-shrink:0}
 .b-card p{font-size:15px;line-height:1.78;color:var(--ink-60)}
 
 /* ═══ סילבוס ═══ */
-.mod{position:relative;background:linear-gradient(90deg,color-mix(in srgb,var(--m1) 10%,#fff),#fff 60%);border:1px solid color-mix(in srgb,var(--m1) 22%,transparent);border-radius:20px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 16px rgba(19,52,59,.05);transition:border-color .22s,box-shadow .22s}
-.mod:hover{border-color:color-mix(in srgb,var(--m1) 45%,transparent);box-shadow:0 14px 40px color-mix(in srgb,var(--m1) 18%,transparent)}
-.mod .mod-chev{background:color-mix(in srgb,var(--m1) 16%,#fff)}
+.mod{position:relative;background:#fff;border:1px solid color-mix(in srgb,var(--m1) 20%,transparent);border-radius:18px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 10px rgba(19,52,59,.05);transition:border-color .22s,box-shadow .22s,transform .22s}
+.mod:hover{border-color:color-mix(in srgb,var(--m1) 42%,transparent);box-shadow:0 12px 32px color-mix(in srgb,var(--m1) 14%,transparent);transform:translateY(-2px)}
+.mod.open{border-color:color-mix(in srgb,var(--m1) 55%,transparent);box-shadow:0 16px 44px color-mix(in srgb,var(--m1) 20%,transparent)}
+.mod::before{content:'';position:absolute;inset-block:0;inset-inline-start:0;width:4px;background:var(--m1);opacity:0;transition:opacity .22s}
+.mod.open::before{opacity:1}
+.mod .mod-chev{background:color-mix(in srgb,var(--m1) 14%,#fff);border:1px solid color-mix(in srgb,var(--m1) 26%,transparent)}
 .mod .mod-chev svg{color:var(--m2)}
 .mod.open .mod-chev{background:var(--m1)}
 .mod.open .mod-chev svg{color:#fff}
@@ -943,10 +952,16 @@ footer .links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:20px 0;justify-con
     });
   });
   document.querySelectorAll('.mod-head').forEach(function(btn){
+    btn.setAttribute('aria-expanded', btn.closest('.mod').classList.contains('open') ? 'true' : 'false');
     btn.addEventListener('click', function(){
-      var m = btn.parentElement, open = m.classList.contains('open');
-      document.querySelectorAll('.mod.open').forEach(function(i){ i.classList.remove('open'); });
-      if(!open) m.classList.add('open');
+      var m = btn.closest('.mod');
+      if(!m) return;
+      var wasOpen = m.classList.contains('open');
+      document.querySelectorAll('.mod.open').forEach(function(i){
+        i.classList.remove('open');
+        var b = i.querySelector('.mod-head'); if(b) b.setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){ m.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
     });
   });
 
