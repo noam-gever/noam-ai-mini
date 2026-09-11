@@ -374,10 +374,11 @@ h1,h2,h3,.hero-promise,.sec-title{text-wrap:balance}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,214,122,.65)}70%{box-shadow:0 0 0 10px rgba(55,214,122,0)}100%{box-shadow:0 0 0 0 rgba(55,214,122,0)}}
 .hero-logo{width:min(180px,46vw)}
 .hero-eyebrow{max-width:520px;margin-inline:auto}
-.hero-promise{font-size:clamp(21px,3.4vw,32px);font-weight:800;line-height:1.35;color:#fff;margin:0 auto 8px;max-width:760px;letter-spacing:-.02em}
+.hero-promise{font-size:clamp(22px,3.8vw,36px);font-weight:800;line-height:1.35;color:#fff;margin:0 auto 8px;max-width:820px;letter-spacing:-.02em}
+.hero-promise .dash{color:var(--primary);margin:0 .15em}
 .hero-promise .big{color:var(--primary);font-size:1.12em}
 .hero-headline{font-size:clamp(26px,4.2vw,44px);margin-bottom:14px;color:rgba(255,255,255,.9)}
-@media(max-width:600px){.hero-promise br{display:none}.hero-eyebrow{font-size:14px}}
+@media(max-width:600px){.hero-promise .dash{display:block;height:0;overflow:hidden}.hero-eyebrow{font-size:14px}}
 .btn-cta.glow{position:relative}
 .btn-cta.glow::after{content:'';position:absolute;inset:-4px;border-radius:16px;border:2px solid rgba(31,184,205,.45);animation:ring 2.4s ease-out infinite;pointer-events:none}
 @keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.12);opacity:0}}
@@ -597,7 +598,7 @@ body.a11y-nomotion .chatdemo .close,body.a11y-nomotion .btn-cta.glow::after,body
     <div class="rise rise-1"><svg class="hero-logo" viewBox="0 0 415 105" role="img" aria-label="נעם AI" xmlns="http://www.w3.org/2000/svg"><title>נעם AI</title><g transform="translate(0,105) scale(0.1,-0.1)"><path fill="#ffffff" d="M0 530 l0 -520 150 0 150 0 0 210 c0 116 2 210 5 210 3 0 147 -94 320 -210 173 -115 319 -210 325 -210 7 0 9 169 8 512 l-3 513 -152 3 -153 3 -2 -216 -3 -215 -318 220 c-175 121 -320 220 -322 220 -3 0 -5 -234 -5 -520z"/><path fill="#ffffff" d="M1400 1029 c-122 -20 -267 -120 -340 -235 -99 -156 -98 -390 2 -546 66 -104 200 -202 309 -227 57 -13 201 -13 258 0 110 25 243 123 311 229 98 153 98 389 0 544 -76 119 -219 215 -350 236 -75 11 -113 11 -190 -1z m208 -326 c23 -13 55 -43 70 -65 23 -36 27 -51 27 -118 0 -68 -3 -81 -28 -117 -84 -122 -270 -122 -354 0 -40 57 -44 153 -11 217 58 108 188 145 296 83z"/><path fill="#1fb8cd" d="M2273 1023 c-3 -10 -97 -239 -209 -510 -112 -270 -204 -494 -204 -498 0 -3 72 -4 161 -3 l161 3 122 312 c66 172 123 313 126 313 3 0 23 -53 44 -117 21 -65 41 -124 43 -130 4 -10 -16 -13 -80 -13 l-84 0 -54 -142 c-30 -78 -55 -145 -57 -150 -2 -4 83 -9 189 -10 l193 -3 10 -32 9 -33 153 0 153 0 -19 53 c-11 28 -94 259 -184 512 l-164 460 -151 3 c-138 2 -152 1 -158 -15z"/><path fill="#1fb8cd" d="M2970 525 l0 -515 150 0 150 0 -2 512 -3 513 -147 3 -148 3 0 -516z"/><path fill="#ffffff" d="M3310 748 l0 -291 27 -36 c15 -20 71 -91 124 -158 l96 -122 139 166 139 165 3 -231 2 -231 155 0 155 0 -2 513 -3 512 -185 3 -185 2 -105 -144 c-58 -80 -108 -145 -111 -145 -4 -1 -55 64 -113 144 -59 80 -114 145 -122 145 -12 0 -14 -45 -14 -292z"/></g></svg></div>
     <p class="hero-eyebrow rise rise-2">לכל מי שכבר ניסה לדבר עם הצ'אט, יצא מתוסכל, ואמר לעצמו: "טוב, עזוב, אני כבר אעשה את זה לבד"</p>
     <h1 class="hero-headline">ממתחיל <span class="highlight">למקצוען</span> בבינה מלאכותית</h1>
-    <p class="hero-promise rise rise-3">איך לחסוך <span class="big">שעה-שעתיים ביום</span> עם הצ'אט <br>כבר ממחר בבוקר</p>
+    <p class="hero-promise rise rise-3">איך לחסוך <span class="big">שעה-שעתיים ביום</span> עם הצ'אט <span class="dash">-</span> כבר ממחר בבוקר</p>
     <div class="rise rise-4" style="margin-top:30px"><a class="btn-cta glow" href="https://pay.grow.link/OTI0NTQ~9873563b5e55946ec1aabcc324217b8b-Mzg1ODgzNg" target="_blank" rel="noopener">נעם, אני בפנים</a></div>
     <div class="reassure rise rise-5">
       <span>גם אם אתה מתחיל לגמרי, בלי אנגלית ועם אפס ניסיון טכנולוגי</span>
@@ -629,7 +630,7 @@ body.a11y-nomotion .chatdemo .close,body.a11y-nomotion .btn-cta.glow::after,body
     </div>
     <div class="hear">
       <blockquote>הצ'אט כותב לי את כל הצעות המחיר, אני רק בודק ושולח</blockquote>
-      <blockquote>הפסקתי לשלם לגרפיקאי על כל מודעה קטנה</blockquote>
+      <blockquote>הפסקתי לשלם 300 שקל לגרפיקאי על כל מודעה קטנה</blockquote>
       <blockquote>הבן שלי עושה איתו הכל, ואני עוד לא פתחתי אותו</blockquote>
     </div>
     <p class="hear-lbl">משפטים כאלה אתה שומע עכשיו בכל מקום</p>
@@ -983,7 +984,7 @@ body.a11y-nomotion .chatdemo .close,body.a11y-nomotion .btn-cta.glow::after,body
       <div class="txt">
         <p><strong>נעים מאוד, נעם סיון. ירושלמי.</strong></p>
         <p>אני לא איש הייטק ולא באתי מהעולם הזה. יש לי עבודה רגילה, אני אחראי על משכורות ובונוסים בסופר בשכונה, ואת כל מה שיש בקורס למדתי בערבים, לבד, בלי אנגלית טובה ובלי אף אחד שיסביר לי</p>
-        <p>שלוש שנים שכל כלי חדש שיוצא, אני בפנים באותו יום. לא בשביל למכור, פשוט לא מצליח להתאפק. שילמתי אלפי שקלים על קורסים בארץ ובחו"ל, חלק היו מצוינים וחלק היו בזבוז, <strong>ואת שניהם אני חוסך לך</strong></p>
+        <p>שלוש שנים שכל כלי חדש שיוצא, אני בפנים באותו יום. לא בשביל למכור, פשוט לא מצליח להתאפק. שילמתי אלפי שקלים על קורסים בארץ ובחו"ל, ישבתי מאות שעות של ניסוי וטעייה, חלק מזה היה מצוין וחלק היה בזבוז, <strong>ואת שניהם אני חוסך לך</strong></p>
         <p>לפני שלוש שנים התחלתי לכתוב על זה בסטטוס, כי לא היה לי עם מי לדבר על זה. היום קוראים אותי שם אלפי אנשים כל יום, ורובם שואלים אותי את אותן שאלות: מאיפה מתחילים, מה עושים כשהוא עונה שטויות, ואיך זה עוזר לעסק בפועל</p>
         <p><strong>הקורס הזה הוא התשובה שהייתי רוצה לקבל לפני שלוש שנים</strong></p>
         <div class="who-facts"><span>3 שנים, כל יום</span><span>אלפי קוראים בסטטוס</span><span>עבודה רגילה, לא הייטק</span></div>
