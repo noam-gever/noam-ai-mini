@@ -842,6 +842,34 @@ body.a11y-nomotion .conf-flag{opacity:1!important;transform:scale(1)!important}
 }
 
 
+
+/* 2: חלון צ'אט אמיתי */
+.gpt{max-width:560px;margin:40px auto 0;background:#fff;border:1px solid #e5e5e5;border-radius:20px;box-shadow:0 14px 50px rgba(19,52,59,.12);direction:rtl;position:relative;overflow:hidden;height:440px;display:flex;flex-direction:column;font-family:var(--font-he)}
+.gpt-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #f0f0f0}
+.gpt-model{display:inline-flex;align-items:center;gap:4px;font-size:16px;font-weight:600;color:#0d0d0d;direction:ltr;padding:4px 8px;border-radius:8px}
+.gpt-model svg{color:#8f8f8f}
+.gpt-icons{display:flex;gap:14px;color:#5d5d5d}
+.gpt-thread{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding:16px 18px 10px;overflow:hidden}
+.g-me{align-self:flex-start;max-width:78%;background:#f4f4f4;color:#0d0d0d;border-radius:18px;padding:9px 16px;font-size:15px;line-height:1.55;animation:gIn .3s ease-out}
+.g-ai{align-self:stretch;color:#0d0d0d;font-size:15px;line-height:1.7;animation:gIn .3s ease-out}
+.g-acts{display:flex;gap:12px;margin-top:6px;color:#8f8f8f;opacity:0;transition:opacity .3s}
+.g-acts.on{opacity:1}
+.g-think{width:12px;height:12px;border-radius:50%;background:#0d0d0d;animation:gPulse 1s ease-in-out infinite}
+@keyframes gPulse{50%{transform:scale(.6);opacity:.5}}
+@keyframes gIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.gpt-input{margin:6px 14px 14px;border:1px solid #e5e5e5;border-radius:28px;box-shadow:0 2px 10px rgba(0,0,0,.06);display:flex;align-items:center;gap:10px;padding:10px 12px;min-height:52px}
+.gi-plus,.gi-mic{color:#5d5d5d;display:flex}
+.gi-text{flex:1;font-size:15px;color:#0d0d0d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gi-text em{font-style:normal;color:#8f8f8f}
+.gi-text.typing::after{content:'';display:inline-block;width:1.5px;height:1.1em;background:#0d0d0d;vertical-align:-.2em;margin-inline-start:1px;animation:gBlink .8s steps(1) infinite}
+@keyframes gBlink{50%{opacity:0}}
+.gi-send{width:34px;height:34px;border-radius:50%;background:#d7d7d7;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
+.gi-send.on{background:#0d0d0d}
+.gi-send.press{transform:scale(.85)}
+.gpt-close{position:absolute;inset:0;background:rgba(19,52,59,.94);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:21px;opacity:0;pointer-events:none;transition:opacity .5s}
+.gpt-close small{font-weight:400;font-size:15px;color:rgba(255,255,255,.72)}
+.gpt-close.on{opacity:1}
+@media(max-width:600px){.gpt{height:470px}.g-me,.g-ai{font-size:14.5px}}
 /* ═══════════ v6 ═══════════ */
 p{text-wrap:pretty}
 
@@ -1029,12 +1057,19 @@ body.a11y-nomotion .logo-stage *,body.a11y-nomotion .mini *,body.a11y-nomotion .
     <div class="lead center">
       <p>אתה פותח את הצ'אט, כותב שורה, ומקבל בחזרה משהו כללי ולא שימושי, אז אתה מנסה לנסח אחרת, עוד פעם ועוד פעם, <span class="dim">עד שאחרי עשרים דקות זה נראה ככה:</span></p>
     </div>
-    <div class="chatdemo" aria-hidden="true">
-      <div class="bub me b1">תכתוב לי מודעה לעסק שלי</div>
-      <div class="bub ai b2">בשמחה! הנה מודעה מקצועית ומרתקת לעסק שלכם: "אנחנו כאן כדי להעניק לכם חוויה יוצאת דופן, עם שירות מקצועי, אמין ואיכותי..."</div>
-      <div class="bub me b3">לא, זה כללי מדי, משהו יותר בסגנון שלי</div>
-      <div class="bub ai b4">כמובן! הנה גרסה משופרת: "אנחנו מזמינים אתכם לחוויה ייחודית ומקצועית, עם צוות אמין ואיכותי..."</div>
-      <div class="close">סגרת את החלון<small>ועשית את זה לבד, שוב</small></div>
+    <div class="gpt" id="gptDemo" aria-hidden="true">
+      <div class="gpt-top">
+        <span class="gpt-model">ChatGPT <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <span class="gpt-icons"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+      </div>
+      <div class="gpt-thread" id="gptThread"></div>
+      <div class="gpt-input">
+        <span class="gi-plus"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span class="gi-text" id="gptTyping"><em>שאל כל דבר</em></span>
+        <span class="gi-mic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1M12 19v3"/></svg></span>
+        <span class="gi-send" id="gptSend"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+      </div>
+      <div class="gpt-close" id="gptClose">סגרת את החלון<small>ועשית את זה לבד, שוב</small></div>
     </div>
     <div class="lead center" style="margin-top:44px">
       <p class="punch">והכי מעצבן? שכולם מסביב אומרים שזה משנה את העולם,<br>ואתה פשוט לא רואה את זה</p>
@@ -1742,6 +1777,71 @@ body.a11y-nomotion .logo-stage *,body.a11y-nomotion .mini *,body.a11y-nomotion .
       unBar.style.width=up.toFixed(1)+'%'; unPct.textContent=Math.floor(up)+'%';
     },600);
   }
+
+  /* v6: חלון הצ'אט — הקלדה, שליחה ותשובה */
+  (function(){
+    var box=document.getElementById('gptDemo'); if(!box) return;
+    var th=document.getElementById('gptThread'), ty=document.getElementById('gptTyping'),
+        send=document.getElementById('gptSend'), cl=document.getElementById('gptClose');
+    var TURNS=[
+      ['me','תכתוב לי מודעה לעסק שלי'],
+      ['ai','בשמחה! הנה מודעה מקצועית ומרתקת לעסק שלכם: "אנחנו כאן כדי להעניק לכם חוויה יוצאת דופן, עם שירות מקצועי, אמין ואיכותי..."'],
+      ['me','לא, זה כללי מדי, משהו יותר בסגנון שלי'],
+      ['ai','כמובן! הנה גרסה משופרת: "אנחנו מזמינים אתכם לחוויה ייחודית ומקצועית, עם צוות אמין ואיכותי..."']
+    ];
+    var ACTS='<div class="g-acts"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12M15 5.9 14 10h5.8a2 2 0 0 1 2 2.3l-1.4 8A2 2 0 0 1 18.4 22H7V10l4-8a3 3 0 0 1 3 3.1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V2M9 18.1 10 14H4.2a2 2 0 0 1-2-2.3l1.4-8A2 2 0 0 1 5.6 2H17v12l-4 8a3 3 0 0 1-3-3.1z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M8 16H3v5"/></svg></div>';
+    function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    var still = reduce || document.body.classList.contains('a11y-nomotion');
+    if(still){
+      th.innerHTML = TURNS.map(function(t){ return t[0]==='me' ? '<div class="g-me">'+esc(t[1])+'</div>' : '<div class="g-ai">'+esc(t[1])+'</div>'; }).join('');
+      return;
+    }
+    var timers=[], running=false, visible=false;
+    function later(fn,ms){ timers.push(setTimeout(fn,ms)); }
+    function stop(){ timers.forEach(clearTimeout); timers=[]; running=false; }
+    function reset(){ th.innerHTML=''; ty.innerHTML='<em>שאל כל דבר</em>'; ty.classList.remove('typing'); send.classList.remove('on'); cl.classList.remove('on'); }
+    function turn(i){
+      if(i>=TURNS.length){
+        later(function(){ cl.classList.add('on'); },1300);
+        later(function(){ reset(); if(visible) turn(0); else running=false; },5200);
+        return;
+      }
+      var t=TURNS[i];
+      if(t[0]==='me'){
+        var s=t[1], k=0; ty.textContent=''; ty.classList.add('typing'); send.classList.add('on');
+        (function type(){
+          if(k<=s.length){ ty.textContent=s.slice(0,k); k++; later(type, 38+Math.random()*40); return; }
+          later(function(){
+            send.classList.add('press');
+            later(function(){ send.classList.remove('press'); },150);
+            th.insertAdjacentHTML('beforeend','<div class="g-me">'+esc(s)+'</div>');
+            ty.innerHTML='<em>שאל כל דבר</em>'; ty.classList.remove('typing'); send.classList.remove('on');
+            later(function(){ turn(i+1); },500);
+          },350);
+        })();
+      } else {
+        th.insertAdjacentHTML('beforeend','<div class="g-ai"><div class="g-think"></div></div>');
+        var el=th.lastElementChild, words=t[1].split(' '), w=0;
+        later(function(){
+          el.innerHTML='<span class="g-txt"></span>'+ACTS;
+          var tx=el.querySelector('.g-txt');
+          (function stream(){
+            if(w<words.length){ tx.textContent += (w?' ':'') + words[w]; w++; later(stream, 55+Math.random()*50); return; }
+            el.querySelector('.g-acts').classList.add('on');
+            later(function(){ turn(i+1); },1100);
+          })();
+        },1100);
+      }
+    }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          visible=e.isIntersecting;
+          if(visible && !running){ running=true; reset(); turn(0); }
+        });
+      },{threshold:.5}).observe(box);
+    } else { running=true; turn(0); }
+  })();
   /* fade-up */
   var items = document.querySelectorAll('.fade-up');
   if('IntersectionObserver' in window && !reduce){
