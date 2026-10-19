@@ -1959,6 +1959,7 @@ var PROOF = [
     save();
     timers.push(setTimeout(function(){confetti(pop.querySelector('.stamp'),90)},560));
     var b=pop.querySelector('.el-res .el-copy'); if(b)timers.push(setTimeout(function(){b.focus({preventScroll:true})},700));
+    timers.push(setTimeout(close,4500)); /* נסגר לבד, הקוד מחכה בדף */
   }
   function tally(){
     count.classList.add('on'); step.textContent='הקלפי נסגרה. סופרים…';
