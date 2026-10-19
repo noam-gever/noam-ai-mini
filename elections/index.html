@@ -1782,7 +1782,6 @@ var PROOF = [
     var r = tilt[count[p.group]++ % tilt.length];
     box.insertAdjacentHTML('beforeend',
       '<figure class="wa" style="--r:' + r + '">' +
-        (line ? '<figcaption class="wa-line">' + line + '</figcaption>' : '') +
         '<img src="' + esc(p.src) + '" alt="' + esc(p.alt || p.line || 'הודעה בוואטסאפ') + '"' +
         (p.w ? ' width="' + p.w + '" height="' + p.h + '"' : '') + ' loading="lazy">' +
         '<span class="wa-src">' + (p.group === 'course' ? 'הודעה מתלמיד בקורס' : 'תגובה לסטטוס') + '</span>' +
